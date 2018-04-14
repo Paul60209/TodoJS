@@ -1,0 +1,41 @@
+<!DOCTYPE HTML5>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>代辦事情清單</title>
+</head>
+<body>
+	<h1>代辦事情清單</h1>
+	<form>	
+		<input id="todo-input" type="text" name="todo">
+		<button id="submit-btn" type="button"> 提交送出</button>
+	</form>
+	<ul id="result">
+		
+	</ul>
+	
+	<script type="text/javascript" >
+				var submitButton= document.getElementById("submit-btn");
+		var result=document.getElementById("result");
+	
+		submitButton.addEventListener('click', function(e){
+			var toDoInput = document.getElementById('todo-input').value;
+			//console.log(toDoInput);
+			if(toDoInput!=="") {
+				var todo = document.createElement("LI");
+				todo.innerHTML=toDoInput+"<button id=toDoInput>X</button>";
+				result.appendChild(todo);
+				document.getElementById("toDoInput").value="";
+			}else {
+				alert("請輸入值");
+			}
+		});
+
+		result.addEventListener("click", function(e){
+			console.log(e);
+			//e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+		});
+	</script>	
+
+</body>
+</html>
